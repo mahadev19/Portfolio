@@ -302,3 +302,33 @@ footer {
   background: #1abc9c;
   color: #fff;  /* ensure text stays white */
 }
+
+
+/* Default styles (desktop-first) */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  .logo {
+    font-size: 18px;
+    text-align: center;
+  }
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
