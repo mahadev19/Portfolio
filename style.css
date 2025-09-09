@@ -1,0 +1,304 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+/* Gradient section (About + Skills + Projects) */
+.gradient-section {
+  background: linear-gradient(135deg, #0a0f2c, #1a237e, #4a148c, #0d47a1);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+  padding: 60px 20px;
+}
+
+/* Keep text white inside gradient section */
+.gradient-section h2, 
+.gradient-section h3, 
+.gradient-section p, 
+.gradient-section li {
+  color: #fff;
+}
+
+
+
+/* Navbar */
+header {
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin: 0 10px;
+}
+nav ul li a,
+nav .btn {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, background 0.3s;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+nav ul li a:hover,
+nav .btn:hover {
+  color: #1abc9c;
+  background: #333;
+}
+#darkModeToggle {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* Hero */
+.hero {
+  
+  color: #fff;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 40px;
+}
+.hero h1 span {
+  color: #1abc9c;
+}
+.hero .btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #1abc9c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s;
+  font-weight: 600;
+}
+.hero .btn:hover {
+  background: #16a085;
+}
+
+/* About */
+.about {
+  padding: 40px 20px;
+  text-align: center;
+}
+.about h2 {
+  margin-bottom: 20px;
+}
+
+
+
+
+/* Projects */
+.projects {
+  padding: 40px 20px;
+  background: #fff;
+}
+.projects h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px; /* improved from 8px */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #ddd; /* from 2nd style */
+  text-align: left;
+}
+.project-card h3 {
+  margin-bottom: 10px;
+  color: #1abc9c;
+}
+.project-card ul {
+  margin-left: 20px;
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1abc9c;
+  text-decoration: none;
+  font-weight: 600;
+}
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* Experience / Education / Achievements / Blog */
+section {
+  padding: 40px 20px;
+  text-align: center; /* from 2nd style */
+}
+section h2 {
+  margin-bottom: 20px;
+}
+.exp-grid,
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.exp-card,
+.cert-card {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px; /* improved */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #ddd; /* from 2nd style */
+  text-align: left;
+}
+.cert-card a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: #1abc9c;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cert-card a:hover {
+  background: #16a085;
+}
+
+/* Contact */
+.contact {
+  padding: 40px 20px;
+  text-align: center;
+}
+.contact a {
+  color: #1abc9c;
+  text-decoration: none;
+  font-weight: 600;
+}
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+.dark-mode header {
+  background: #111;
+}
+.dark-mode .project-card,
+.dark-mode .exp-card,
+.dark-mode .cert-card {
+  background: #1e1e1e;
+  border: 1px solid #444;
+}
+.dark-mode a {
+  color: #1abc9c;
+}
+.dark-mode footer {
+  background: #111;
+}
+.skills {
+  margin: 40px auto;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.skills h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.skill-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 30px;
+}
+
+.skill-category h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #141414;
+  width: 220px;
+  text-align: center;
+  background: #fdfafae5;   /* same style as certificates */
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  max-width: 700px;
+}
+
+.skill {
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.2s ease;
+  white-space: nowrap;  /* keeps each skill in one line */
+}
+
+.skill:hover {
+  background: #222;
+  transform: translateY(-3px);
+}
+/* Dark Mode Fix for Certificates & Skill Headings */
+.dark-mode .cert-card a,
+.dark-mode .skill-category h3 {
+  background: #1abc9c;
+  color: #fff;  /* ensure text stays white */
+}
