@@ -1,202 +1,1128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahadev | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahadev Pandharpote | Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .navbar.scrolled {
+            background: rgba(44, 62, 80, 0.98);
+            padding: 5px 0;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .navbar-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar-item {
+            margin-left: 30px;
+        }
+
+        .navbar-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-link:hover {
+            color: var(--secondary);
+        }
+
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .navbar-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 30px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--primary);
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .header-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-resume {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-resume:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-details {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .skill-card ul {
+            list-style-type: none;
+        }
+
+        .skill-card li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            margin-bottom: 15px;
+        }
+
+        .project-card ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .project-card li {
+            margin-bottom: 8px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .project-card a:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Certificates Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cert-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .cert-card:hover a {
+            color: var(--secondary);
+        }
+
+        /* Education Section */
+        .education-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 30px;
+            width: 2px;
+            background: var(--secondary);
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            margin-left: 80px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            left: -50px;
+            top: 40px;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item h4 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h5 {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* Journey Section */
+        .journey-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .journey-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--secondary);
+            z-index: -1;
+        }
+
+        .journey-step {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 200px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        /* Strengths Section */
+        .strengths-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .strength-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .strength-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .strength-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            line-height: 40px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-menu.active {
+                right: 0;
+            }
+
+            .navbar-item {
+                margin: 15px 0;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            .navbar-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .navbar-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .journey-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .journey-container::before {
+                display: none;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline-item {
+                margin-left: 50px;
+            }
+            
+            .education-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: -40px;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-buttons .btn {
+                width: 200px;
+            }
+        }
+    </style>
 </head>
-<div class="gradient-section">
-
 <body>
-
-  <!-- Navbar -->
-  <header>
-    <nav>
-      <h2 class="logo">Mahadev Bharat Pandharpote</h2>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="pdf/Mahadev Pandharpote Resume (1).pdf" class="btn" target="_blank">📄 Resume</a></li>
-        <li><button id="darkModeToggle">🌙</button></li>
-      </ul>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <a href="#home" class="navbar-logo">Mahadev Pandharpote</a>
+            <div class="navbar-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="#home" class="navbar-link">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#about" class="navbar-link">About</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#skills" class="navbar-link">Skills</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#projects" class="navbar-link">Projects</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#certificates" class="navbar-link">Certificates</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#strengths" class="navbar-link">Strengths</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#education" class="navbar-link">Education</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#journey" class="navbar-link">Journey</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#aspirations" class="navbar-link">Aspirations</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#contact" class="navbar-link">Contact</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm <span>Mahadev</span></h1>
-      <p>Aspiring Data Scientist | Python & ML Developer</p>
-      <br>
-      <a href="#projects" class="btn">View My Work</a>
-    </div>
-  </section>
+    <!-- Header Section -->
+    <header id="home">
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img" data-aos="zoom-in" data-aos-duration="1000">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1 data-aos="fade-up" data-aos-delay="200">Hi, I'm Mahadev</h1>
+                <p data-aos="fade-up" data-aos-delay="300">Entry-Level Data Scientist | Python, SQL, Power BI, Machine Learning</p>
+                <p data-aos="fade-up" data-aos-delay="400">BTech in Computer Engineering</p>
+                <div class="header-buttons" data-aos="fade-up" data-aos-delay="500">
+                    <a href="#contact" class="btn">Contact Me</a>
+                    <a href="pdf/Mahadev Pandharpote Resume (1).pdf" class="btn btn-resume" target="_blank">
+                        <i class="fas fa-download"></i> View Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <!-- About -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a BTech CSE student passionate about Data Science.  
-      I work on data analysis, machine learning models, and real-world AI applications 
-      using Python, SQL, Scikit-learn, Power BI, and related tools.
-    </p>
-  </section>
-  <section class="skills">
-  <h2> Technical Skills</h2>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Transforming Data into Actionable Insights</h3>
+                    <p>I am a Computer Engineering graduate passionate about transforming data into actionable insights using Python, SQL, and machine learning techniques. Having completed my BTech at Vlasrao Deshmukh Foundation and Dr. Babasaheb Ambedkar Technological University, I have built a strong foundation in programming, statistical analysis, and data visualization tools such as Power BI.</p>
+                    <p>Through academic projects and hands-on practice, I have applied data science methods to solve real-world problems, focusing on data analysis, visualization, and predictive modeling.</p>
+                </div>
+                <div class="about-details" data-aos="fade-left" data-aos-delay="300">
+                    <h3>Personal Details</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</p>
+                        <p><i class="fas fa-phone"></i> 9356804873</p>
+                        <p><i class="fas fa-envelope"></i> pandmahadev120@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="skill-category">
-    <h3>Languages</h3>
-    <div class="skill-list">
-      <div class="skill">Python</div>
-      <div class="skill">SQL</div>
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-    </div>
-  </div>
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Core Competencies</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Python Programming</h3>
+                    <p>Proficient in Python for data analysis, machine learning, and statistical modeling.</p>
+                    <ul>
+                        <li>Python for data science</li>
+                        <li>Statistical analysis</li>
+                        <li>Data preprocessing</li>
+                        <li>Feature engineering</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Power BI</h3>
+                    <p>Creating interactive dashboards and compelling data visualizations.</p>
+                    <ul>
+                        <li>Data visualization</li>
+                        <li>Interactive dashboards</li>
+                        <li>Analytical problem-solving</li>
+                        <li> DAX</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>SQL & Databases</h3>
+                    <p>Strong SQL skills for data extraction, manipulation, and database management.</p>
+                    <ul>
+                        <li>SQL query optimization</li>
+                        <li>Database management</li>
+                        <li>Data extraction</li>
+                        <li> Tools: MySQL, PostgreSQL</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Machine Learning</h3>
+                    <p>Applying ML algorithms for predictive modeling and pattern recognition.</p>
+                    <ul>
+                        <li>Predictive modeling</li>
+                        <li>Anomaly detection</li>
+                        <li>Demand forecasting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="skill-category">
-    <h3>Machine Learning</h3>
-    <div class="skill-list">
-      <div class="skill">Supervised Learning</div>
-      <div class="skill">Unsupervised Learning</div>
-      <div class="skill">Feature Engineering</div>
-      <div class="skill">Model Evaluation</div>
-    </div>
-  </div>
-<div class="skill-category">
-    <h3>Data Science and Analytics</h3>
-    <div class="skill-list">
-      <div class="skill">Exploratory Data Analysis (EDA)</div>
-      <div class="skill">Data Cleaning</div>
-      <div class="skill">Data Visualization</div>
-      <div class="skill">Data Preprocessing</div>
-      
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Projects</h2>
+            </div>
+            <div class="project-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>🏏 IPL Data Science Project</h3>
+                    <p><strong>Role:</strong> Data Scientist</p>
+                    <ul>
+                        <li>Cleaned & engineered IPL datasets for analysis.</li>
+                        <li>Explored player performance, team efficiency, and match trends.</li>
+                        <li>Built visualizations with Pandas, Matplotlib, Seaborn.</li>
+                        <li>Implemented ML models for forecasting & prediction.</li>
+                    </ul>
+                    <p><strong>Tech:</strong> Python, Pandas, Seaborn, Matplotlib, Scikit-learn</p>
+                    <a href="https://github.com/mahadev19/Ipl-Data-Science" target="_blank">GitHub</a>
+                </div>
 
-    </div>
-  </div>
-  <div class="skill-category">
-    <h3>Frameworks & Libraries</h3>
-    <div class="skill-list">
-      <div class="skill">Flask</div>
-      <div class="skill">Scikit-learn</div>
-      <div class="skill">Pandas</div>
-      <div class="skill">NumPy</div>
-      <div class="skill">Matplotlib</div>
-    </div>
-  </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>🚖 Uber Data Science Project</h3>
+                    <p><strong>Role:</strong> Data Analyst / ML Engineer</p>
+                    <ul>
+                        <li>Analyzed ride data for demand, peak hours, and geography.</li>
+                        <li>Performed data cleaning, feature engineering & anomaly detection.</li>
+                        <li>Created dashboards with Matplotlib & Seaborn.</li>
+                        <li>Built Random Forest models for demand forecasting.</li>
+                    </ul>
+                    <p><strong>Tech:</strong> Python, Pandas, Seaborn, Matplotlib, Scikit-learn</p>
+                    <a href="https://github.com/mahadev19/Uber-Data-Science" target="_blank">GitHub</a>
+                </div>
 
-  <div class="skill-category">
-    <h3>Tools & Platforms</h3>
-    <div class="skill-list">
-      <div class="skill">Git/GitHub</div>
-      <div class="skill">Jupyter Notebook</div>
-      <div class="skill">VS Code</div>
-      <div class="skill">Power BI</div>
-    </div>
-  </div>
-</section>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>🎤 Scream Detection & Alert System</h3>
+                    <p><strong>Role:</strong> AI Engineer / Full-Stack Developer</p>
+                    <ul>
+                        <li>Built Flask app integrating audio processing + AI classification.</li>
+                        <li>Trained TensorFlow model for scream detection.</li>
+                        <li>Implemented 5-sec live audio capture & PostgreSQL storage.</li>
+                        <li>Integrated WhatsApp API for real-time emergency alerts.</li>
+                    </ul>
+                    <p><strong>Tech:</strong> Python, Flask, TensorFlow, PostgreSQL, Twilio API</p>
+                    <a href="https://github.com/mahadev19/Scream-Detection" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Certificates Section -->
+    <section id="certificates" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Certificates</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card" data-aos="zoom-in" data-aos-delay="100"><a href="certificates/Python.pdf" target="_blank">🐍 Python</a></div>
+                <div class="cert-card" data-aos="zoom-in" data-aos-delay="200"><a href="certificates/SQL.pdf" target="_blank">🗄️ SQL</a></div>
+                <div class="cert-card" data-aos="zoom-in" data-aos-delay="300"><a href="certificates/DataScience.pdf" target="_blank">📊 Data Science</a></div>
+                <div class="cert-card" data-aos="zoom-in" data-aos-delay="400"><a href="certificates/MachineLearning.pdf" target="_blank">🤖 Machine Learning</a></div>
+                <div class="cert-card" data-aos="zoom-in" data-aos-delay="500"><a href="certificates/PowerBI.pdf" target="_blank">📈 Power BI</a></div>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- Strengths Section -->
+    <section id="strengths">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Key Strengths</h2>
+            </div>
+            <div class="strengths-container">
+                <div class="strength-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="strength-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytical Skills</h3>
+                    <p>Strong ability to analyze complex datasets, identify patterns, and extract meaningful insights that drive decision-making.</p>
+                </div>
+                <div class="strength-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="strength-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Anomaly Detection</h3>
+                    <p>Expertise in identifying unusual patterns and outliers in data to prevent issues and optimize processes.</p>
+                </div>
+                <div class="strength-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="strength-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Demand Forecasting</h3>
+                    <p>Skilled in building predictive models to forecast future trends and support strategic planning initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
+    <!-- Education Section -->
+    <section id="education" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Educational Background</h2>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <h3>Bachelor of Technology</h3>
+                    <h4>Computer Engineering</h4>
+                    <h5>Vilaarao Deshmukh Foundation Group of Institution Latur 413512</h5>
+                    <p>Dr. Babasaheb Ambedkar Technological University</p>
+                    <p>January 2021 - September 2025</p>
+                    <p>Built a comprehensive foundation in computer engineering principles, programming languages, data structures, algorithms, Machine Learning Projects and software development methodologies during my undergraduate studies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="project-card">
-        <h3>🏏 IPL Data Science Project</h3>
-        <p><strong>Role:</strong> Data Scientist</p>
-        <ul>
-          <li>Cleaned & engineered IPL datasets for analysis.</li>
-          <li>Explored player performance, team efficiency, and match trends.</li>
-          <li>Built visualizations with Pandas, Matplotlib, Seaborn.</li>
-          <li>Implemented ML models for forecasting & prediction.</li>
-        </ul>
-        <p><strong>Tech:</strong> Python, Pandas, Seaborn, Matplotlib, Scikit-learn</p>
-        <a href="https://github.com/mahadev19/Ipl-Data-Science" target="_blank">GitHub</a>
-      </div>
+    <!-- Journey Section -->
+    <section id="journey">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>My Data Science Journey</h2>
+            </div>
+            <div class="journey-container">
+                <div class="journey-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h3>Foundation Building</h3>
+                    <p>Developed strong programming skills in Python and SQL through coursework and self-study.</p>
+                </div>
+                <div class="journey-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h3>Specialization</h3>
+                    <p>Focused on machine learning, predictive modeling, and data visualization with Power BI.</p>
+                </div>
+                <div class="journey-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h3>Practical Application</h3>
+                    <p>Applied data science techniques through academic projects and personal initiatives.</p>
+                </div>
+                <div class="journey-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h3>Ready to Contribute</h3>
+                    <p>Seeking opportunities to apply skills and grow in professional data science roles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="project-card">
-        <h3>🚖 Uber Data Science Project</h3>
-        <p><strong>Role:</strong> Data Analyst / ML Engineer</p>
-        <ul>
-          <li>Analyzed ride data for demand, peak hours, and geography.</li>
-          <li>Performed data cleaning, feature engineering & anomaly detection.</li>
-          <li>Created dashboards with Matplotlib & Seaborn.</li>
-          <li>Built Random Forest models for demand forecasting.</li>
-        </ul>
-        <p><strong>Tech:</strong> Python, Pandas, Seaborn, Matplotlib, Scikit-learn</p>
-        <a href="https://github.com/mahadev19/Uber-Data-Science" target="_blank">GitHub</a>
-      </div>
+    <!-- What I Bring Section -->
+    <section id="bring" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>What I Bring to Your Team</h2>
+            </div>
+            <div class="strengths-container">
+                <div class="strength-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="strength-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Real-World Problem Solving</h3>
+                    <p>Experience applying data science methods to tackle practical challenges through projects focused on analysis, visualization, and predictive modeling.</p>
+                </div>
+                <div class="strength-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="strength-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Continuous Learning</h3>
+                    <p>Always eager to learn new technologies, methodologies, and best practices in the rapidly evolving data science field.</p>
+                </div>
+                <div class="strength-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="strength-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Analytical Mindset</h3>
+                    <p>Strong critical thinking abilities combined with attention to detail to extract actionable insights from complex datasets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="project-card">
-        <h3>🎤 Scream Detection & Alert System</h3>
-        <p><strong>Role:</strong> AI Engineer / Full-Stack Developer</p>
-        <ul>
-          <li>Built Flask app integrating audio processing + AI classification.</li>
-          <li>Trained TensorFlow model for scream detection.</li>
-          <li>Implemented 5-sec live audio capture & PostgreSQL storage.</li>
-          <li>Integrated WhatsApp API for real-time emergency alerts.</li>
-        </ul>
-        <p><strong>Tech:</strong> Python, Flask, TensorFlow, PostgreSQL, Twilio API</p>
-        <a href="https://github.com/mahadev19/Scream-Detection" target="_blank">GitHub</a>
-      </div>
+    <!-- Career Aspirations Section -->
+    <section id="aspirations">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Career Aspirations</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Seeking Opportunities</h3>
+                    <p>I am actively seeking internship or entry-level positions in data science where I can further sharpen my skills and contribute meaningfully to innovative teams.</p>
+                    <p>My goal is to work with organizations that value data-driven decision-making and provide opportunities for professional growth and skill development.</p>
+                  <br>
+                    <a href="tel:+919356804873" class="btn">Get In Touch</a>
+                </div>
+                <div class="about-details" data-aos="fade-left" data-aos-delay="300">
+                    <h3>My Goals</h3>
+                    <ul>
+                        <li>Contribute to data-driven decision making</li>
+                        <li>Develop expertise in machine learning</li>
+                        <li>Work on challenging real-world problems</li>
+                        <li>Grow with an innovative team</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Let's Connect</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>pandmahadev120@gmail.com</p>
+                    <br>
+                    <br>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pandmahadev0@gmail.com" class="btn">Mail To</a>
+                </div>
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>9326804873</p>
+                    <p>Available for calls and discussions about data science roles.</p>
+                    <a href="tel:+919356804873" class="btn">Call Me</a>
+                </div>
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me professionally to stay updated on my journey.</p>
+                    <br>
+                    <a href="https://www.linkedin.com/in/mahadev-pandharpote-coder-developer/" class="btn">View LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mahadev-pandharpote-coder-developer/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/mahadev19"><i class="fab fa-github"></i></a>  
+                <a href="https://x.com/Mahadev_Py"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Mahadev Pandharpote. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-  <!-- Education -->
-  <section id="education">
-    <h2>Education</h2>
-    <p><strong>BTech in Computer Science & Engineering</strong><br>
-       Vilasrao Deshmukh Foundation Group of Institution Latur | 2021 – 2025</p>
-  </section>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false,
+                offset: 100
+            });
+            
+            // Navbar toggle for mobile
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navbarMenu = document.querySelector('.navbar-menu');
 
-  <!-- Certificates -->
-  <section id="certificates">
-    <h2>Certificates</h2>
-    <div class="cert-grid">
-      <div class="cert-card"><a href="certificates/Python.pdf" target="_blank">🐍 Python</a></div>
-      <div class="cert-card"><a href="certificates/SQL.pdf" target="_blank">🗄️ SQL</a></div>
-      <div class="cert-card"><a href="certificates/DataScience.pdf" target="_blank">📊 Data Science</a></div>
-      <div class="cert-card"><a href="certificates/MachineLearning.pdf" target="_blank">🤖 Machine Learning</a></div>
-      <div class="cert-card"><a href="certificates/PowerBI.pdf" target="_blank">📈 Power BI</a></div>
-    </div>
-  </section>
+            mobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                navbarMenu.classList.toggle('active');
+            });
 
-  
- 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:pandmahadev120@gmail.com">pandmahadev120@gmail.com</a></p>
-    <p>
-      <a href="https://www.linkedin.com/in/mahadev-pandharpote-coder-developer/" target="_blank">LinkedIn</a> | 
-      <a href="https://github.com/mahadev19" target="_blank">GitHub</a>
-    </p>
-  </section>
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.navbar-link').forEach(n => n.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navbarMenu.classList.remove('active');
+            }));
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Mahadev. All Rights Reserved.</p>
-  </footer>
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
 
-  <!-- Dark Mode Script -->
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggle.textContent = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
-    });
-  </script>
-
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
