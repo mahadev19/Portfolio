@@ -678,6 +678,17 @@
                 width: 200px;
             }
         }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-img {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
     </style>
 </head>
 
@@ -731,8 +742,9 @@
         <div class="container">
             <div class="header-content">
                 <div class="profile-img" data-aos="zoom-in" data-aos-duration="1000">
-                    <i class="fas fa-user"></i>
+                    <img src="images/profile.jpg" alt="Mahadev Pandharpote">
                 </div>
+
                 <h1 data-aos="fade-up" data-aos-delay="200">Hi, I'm Mahadev</h1>
                 <p data-aos="fade-up" data-aos-delay="300">Data Scientist | Python, SQL, Machine Learning, Power BI |
                     Turning Data Into Actionable Insights</p>
