@@ -10,7 +10,7 @@ A clean, responsive personal portfolio website built with plain HTML, CSS, and (
 * Sections for About, Projects, Skills, and Contact.
 * Responsive design that works on desktop and mobile.
 * Easy-to-edit HTML so you can quickly update content and add new projects.
-
+* 
 ---
 
 ## 🔧 Technologies
