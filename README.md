@@ -1,4 +1,4 @@
-# Portfolio
+ # Portfolio
 
 A clean, responsive personal portfolio website built with plain HTML, CSS, and (optionally) JavaScript. This repository contains the source for a single-page portfolio (`index.html`) showcasing projects, skills, and contact information.
 
