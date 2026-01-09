@@ -28,22 +28,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahadev Pandharpote | Data Scientist</title>
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        @media (max-width: 768px) {
-            .below-navbar-social {
-                justify-content: center;
-                padding: 6px 0;
-            }
-        }
+    @media (max-width: 768px) {
+    .navbar-menu {
+        position: fixed;
+        top: 110px;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100vh - 110px);
+        background: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-menu.active {
+        right: 0;
+    }
+}
+
+
 
         :root {
             --primary: #2c3e50;
@@ -196,6 +212,13 @@
             overflow: hidden;
             margin-top: 70px;
         }
+.navbar {
+    z-index: 1001;
+}
+
+.below-navbar-social {
+    z-index: 1000;
+}
 
         header::before {
             content: '';
@@ -751,27 +774,25 @@
             color: #1da1f2;
             transform: scale(1.2);
         }
-        html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
 
-.navbar-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+        }
 
-.navbar-menu {
-    max-width: 320px;
-    width: 100%;
-}
+        .navbar-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
 
-[data-aos] {
-    overflow-x: hidden;
-}
+       
 
+        [data-aos] {
+            overflow-x: hidden;
+        }
     </style>
 </head>
 
@@ -1392,7 +1413,7 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetElement.offsetTop - 120,
                             behavior: 'smooth'
                         });
                     }
