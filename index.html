@@ -34,6 +34,13 @@
     <!-- AOS Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        @media (max-width: 768px) {
+            .below-navbar-social {
+                justify-content: center;
+                padding: 6px 0;
+            }
+        }
+
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
@@ -712,6 +719,34 @@
         .profile-img {
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
         }
+
+        .below-navbar-social {
+            position: sticky;
+            top: 70px;
+            /* navbar height */
+
+            display: flex;
+            justify-content: flex-end;
+            gap: 18px;
+
+            padding: 8px 40px;
+            background: linear-gradient(to right, #1f3b53, #2c5f87);
+
+            z-index: 999;
+        }
+
+
+
+        .below-navbar-social a {
+            color: #ffffff;
+            font-size: 18px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .below-navbar-social a:hover {
+            color: #1da1f2;
+            transform: scale(1.2);
+        }
     </style>
 </head>
 
@@ -758,10 +793,22 @@
                 </li>
             </ul>
         </div>
-    </nav>
 
+    </nav>
+    <div class="below-navbar-social">
+        <a href="https://www.linkedin.com/in/mahadev-data-scientist/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/mahadev19" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://x.com/Mahadev_Py" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
     <!-- Header Section -->
     <header id="home">
+
         <div class="container">
             <div class="header-content">
                 <div class="profile-img" data-aos="zoom-in" data-aos-duration="1000">
@@ -774,7 +821,7 @@
                 <p data-aos="fade-up" data-aos-delay="400">BTech in Computer Engineering</p>
                 <div class="header-buttons" data-aos="fade-up" data-aos-delay="500">
                     <a href="#contact" class="btn">Contact Me</a>
-                    <a href="pdf/Mahadev_Pandharpote.pdf" class="btn btn-resume" target="_blank">
+                    <a href="pdf/Mahadev_09-01-2026.pdf" class="btn btn-resume" target="_blank">
                         <i class="fas fa-download"></i> View Resume
                     </a>
                 </div>
@@ -860,21 +907,43 @@
                     <h3>Machine Learning</h3>
                     <p>Applying ML algorithms for predictive modeling and pattern recognition.</p>
                     <ul>
-                        <li>Predictive modeling</li>
-                        <li>Anomaly detection</li>
-                        <li>Demand forecasting</li>
+                        <li>Supervised & unsupervised learning techniques</li>
+                        <li>Classification, regression & clustering models</li>
+                        <li>Feature engineering & data preprocessing</li>
+                        <li>Model evaluation, tuning & validation</li>
+                        <li>Predictive modeling, anomaly detection & demand forecasting</li>
                     </ul>
                 </div>
                 <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
-                    <h3>Tools</h3>
-                    <p>Proficient with modern development, analysis, and documentation tools.</p>
+                    <h3>Deep Learning & NLP</h3>
+                    <p>Building deep learning models and NLP pipelines to extract insights from text and unstructured
+                        data.</p>
                     <ul>
-                        <li>Git & GitHub</li>
-                        <li>Jupyter Notebook</li>
-                        <li>VS Code</li>
-                        <li>MS Office</li>
+                        <li> Neural Networks (CNN, RNN – foundational), TensorFlow</li>
+                        <li>Text preprocessing & tokenization</li>
+                        <li>Word embeddings (Word2Vec, GloVe)</li>
+                        <li>Sequence models (RNN, LSTM)</li>
+                        <li>Transformer-based models (BERT)</li>
+                        <li>Sentiment analysis & text classification</li>
                     </ul>
                 </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Tools & Data Skills</h3>
+                    <p>
+                        Proficient with modern development tools and core data analysis techniques used
+                        across data science and workflows.
+                    </p>
+                    <ul>
+                        <li>Git & GitHub (version control)</li>
+                        <li>Jupyter Notebook & VS Code</li>
+                        <li>Pandas & NumPy for data manipulation</li>
+                        <li>Exploratory Data Analysis (EDA)</li>
+                        <li>Feature engineering & data preprocessing</li>
+                        <li>MS Office (Excel, PowerPoint, Word)</li>
+                    </ul>
+                </div>
+
 
             </div>
         </div>
