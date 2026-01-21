@@ -38,26 +38,26 @@
     <!-- AOS Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-    @media (max-width: 768px) {
-    .navbar-menu {
-        position: fixed;
-        top: 110px;
-        right: -100%;
-        width: 80%;
-        max-width: 320px;
-        height: calc(100vh - 110px);
-        background: var(--primary);
-        flex-direction: column;
-        align-items: center;
-        padding-top: 30px;
-        transition: var(--transition);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    }
+        @media (max-width: 768px) {
+            .navbar-menu {
+                position: fixed;
+                top: 110px;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: calc(100vh - 110px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 30px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
 
-    .navbar-menu.active {
-        right: 0;
-    }
-}
+            .navbar-menu.active {
+                right: 0;
+            }
+        }
 
 
 
@@ -212,13 +212,14 @@
             overflow: hidden;
             margin-top: 70px;
         }
-.navbar {
-    z-index: 1001;
-}
 
-.below-navbar-social {
-    z-index: 1000;
-}
+        .navbar {
+            z-index: 1001;
+        }
+
+        .below-navbar-social {
+            z-index: 1000;
+        }
 
         header::before {
             content: '';
@@ -788,10 +789,60 @@
             box-sizing: border-box;
         }
 
-       
+
 
         [data-aos] {
             overflow-x: hidden;
+        }
+
+        .photo-quote-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .about-photo {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: contain;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 4px solid #007bff;
+            transition: transform 0.3s ease;
+        }
+
+        .about-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .about-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #333;
+            margin: 0;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0.5rem 0 0 0;
+            font-weight: 500;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .about-photo {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-quote {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -901,11 +952,11 @@
                         decision-making and contribute to meaningful business impact.</p>
                 </div>
                 <div class="about-details" data-aos="fade-left" data-aos-delay="300">
-                    <h3>Personal Details</h3>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</p>
-                        <p><i class="fas fa-phone"></i> 9356804873</p>
-                        <p><i class="fas fa-envelope"></i> pandmahadev120@gmail.com</p>
+                    <div class="photo-quote-container">
+                        <img src="images/1746864357042.jpg.jpeg" alt="Mahadev Pandharpote" class="about-photo">
+                        <p class="about-quote">“Loyalty is a two-way street.
+                            If I'm asking for it from you then you're getting it from me."</p>
+                        <p class="quote-author">— Mahadev Pandharpote</p>
                     </div>
                 </div>
             </div>
