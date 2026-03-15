@@ -81,6 +81,5 @@ Contact : gmail:- pandmahadev120@gmail.com
 linkedin :- https://www.linkedin.com/in/mahadev-data-scientist/
 
 twitter : - https://x.com/Mahadev_Py
----
 
 link- https://www.mahadev.me/
